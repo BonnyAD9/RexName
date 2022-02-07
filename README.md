@@ -15,7 +15,7 @@ New Text Document.txt -> New Text Document 05.txt
 
 - first argument is regex pattern that will be matched to the file names
 - second argument specifies the new name
-  - if a string is in `<>` braces it is taken from the regex pattern (numbers can be also used e.g. `<0>` will take the whole file name, `<1>` will take contents of the first braces)
+  - if a string is in `<>` braces it is taken from the regex pattern (numbers can be also used e.g. `<0>` will take the whole file name, `<1>` will take contents of the first braces, `<2>` ...)
   - if a string is in `{}` braces it is a special variable, for now the only option is `i` which will result in index of the item, this also supports formats after `:` that format will be passed as format to the `ToString` method of that variable (`i` is int)
   - you can escape characters using `\`, the character directly after the `\` will be interpreted as just character instead of anything other
 

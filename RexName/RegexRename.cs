@@ -16,6 +16,8 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
 
     public (FileInfo File, string Name) this[int index] => NewNames[index];
 
+    private static char[] InvalidChars { get; } = Path.GetInvalidFileNameChars();
+
     public RegexRename(string directory, SearchOption searchOption = SearchOption.TopDirectoryOnly)
     {
         Directory = directory;
@@ -50,7 +52,12 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
         {
             if (file.DirectoryName is null)
                 continue;
-            file.MoveTo(Path.Combine(file.DirectoryName!, name), true);
+            string legalName = name;
+            foreach (var c in InvalidChars)
+            {
+                legalName = legalName.Replace(c.ToString(), "");
+            }
+            file.MoveTo(Path.Combine(file.DirectoryName!, legalName), true);
         }
     }
 

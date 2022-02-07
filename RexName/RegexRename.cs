@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using Dir = System.IO.Directory;
 using System.Collections;
+using Bny.Tags;
 
 namespace RexName;
 
@@ -11,7 +12,7 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
     private FileInfo[] Files { get; init; }
     private List<(FileInfo, string)> NewNames { get; } = new();
     public Regex? Pattern { get; private set; } = null;
-    public Func<string, string, string?> GetVariable { get; set; } = static (_, _) => null;
+    public Func<string, Lazy<Tag>, string?> GetVariable { get; set; } = static (_, _) => null;
 
     public (FileInfo File, string Name) this[int index] => NewNames[index];
 
@@ -57,6 +58,13 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
     {
         StringBuilder sb = new();
 
+        Lazy<Tag> tag = new(() =>
+        {
+            Tag t = new();
+            ID3v1.Read(t, file);
+            return t;
+        });
+
         for (int i = 0; i < pattern.Length; i++)
         {
             int newI = i;
@@ -75,7 +83,7 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
                     newI = pattern.IndexOf('}', i);
                     if (newI < 0)
                         return null;
-                    toAppend = GetVariable(pattern[i..newI], file);
+                    toAppend = GetVariable(pattern[i..newI], tag);
                     break;
                 case '\\':
                     i++;

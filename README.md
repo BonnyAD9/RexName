@@ -68,17 +68,17 @@ New Text Document.txt
 
 ### Example 2
 ```
-rexname ".*\.mp3" "{tag.artist} - {tag.album} - {tag.track:00} {tag.title}.mp3" -d TestFolder -noop
+PS > rexname ".*\.mp3" "{tag.artist} - {tag.album} - {tag.track:00} {tag.title}.mp3" -d TestFolder -noop
 Found: 13
 01 Distorted Light Beam.mp3 -> Bastille - Give Me The Future - 01 Distorted Light Beam.mp3
 02 Thelma + Louise.mp3 -> Bastille - Give Me The Future - 02 Thelma + Louise.mp3
 03 No Bad Days.mp3 -> Bastille - Give Me The Future - 03 No Bad Days.mp3
 04 Brave New World (Interlude).mp3 -> Bastille - Give Me The Future - 04 Brave New World (Interlude).mp3
 05 Back To The Future.mp3 -> Bastille - Give Me The Future - 05 Back To The Future.mp3
-06 Plug In.mp3 -> Bastille - Give Me The Future - 06 Plug In?.mp3
+06 Plug In.mp3 -> Bastille - Give Me The Future - 06 Plug In.mp3
 07 Promises.mp3 -> Bastille - Give Me The Future - 07 Promises.mp3
 08 Shut Off The Lights.mp3 -> Bastille - Give Me The Future - 08 Shut Off The Lights.mp3
-09 Stay Awake.mp3 -> Bastille - Give Me The Future - 09 Stay Awake?.mp3
+09 Stay Awake.mp3 -> Bastille - Give Me The Future - 09 Stay Awake.mp3
 10 Give Me The Future.mp3 -> Bastille - Give Me The Future - 10 Give Me The Future.mp3
 11 Club 57.mp3 -> Bastille - Give Me The Future - 11 Club 57.mp3
 12 Total Dissociation (Interlude).mp3 -> Bastille - Give Me The Future - 12 Total Dissociation (Interlude).mp3

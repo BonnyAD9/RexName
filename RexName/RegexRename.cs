@@ -40,6 +40,10 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
             string? name = MakeName(match, replacePattern, file.FullName);
             if (name is null)
                 return -1;
+
+            foreach (var c in InvalidChars)
+                name = name!.Replace(c.ToString(), "");
+
             NewNames.Add((file, name!));
         }
         
@@ -52,12 +56,7 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
         {
             if (file.DirectoryName is null)
                 continue;
-            string legalName = name;
-            foreach (var c in InvalidChars)
-            {
-                legalName = legalName.Replace(c.ToString(), "");
-            }
-            file.MoveTo(Path.Combine(file.DirectoryName!, legalName), true);
+            file.MoveTo(Path.Combine(file.DirectoryName!, name), true);
         }
     }
 

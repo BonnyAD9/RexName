@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 using Dir = System.IO.Directory;
-using System.Threading.Tasks;
 using System.Collections;
 
 namespace RexName;

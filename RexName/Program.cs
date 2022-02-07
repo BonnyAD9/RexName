@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace RexName;
+﻿namespace RexName;
 
 class Program
 {

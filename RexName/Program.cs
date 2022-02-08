@@ -57,7 +57,7 @@ class Program
                 "tag.artist" => tag.Value.Artist,
                 "tag.album" => tag.Value.Album,
                 "tag.title" => tag.Value.Title,
-                "tag.track" => tag.Value.TrackNumber.ToString(),
+                "tag.track" => tag.Value.Track.ToString(),
                 "tag.year" => tag.Value.Year,
                 "tag.genre" => tag.Value.Genre,
                 "tag.comment" => tag.Value.Comment,
@@ -67,7 +67,7 @@ class Program
             return name[..i] switch
             {
                 "i" => index++.ToString(name[(i + 1)..]),
-                "tag.track" => tag.Value.TrackNumber.ToString(name[(i + 1)..]),
+                "tag.track" => tag.Value.Track.ToString(name[(i + 1)..]),
                 _ => null,
             };
         };

@@ -66,8 +66,7 @@ public class RegexRename : IEnumerable<(FileInfo, string)>
 
         Lazy<Tag> tag = new(() =>
         {
-            Tag t = new();
-            ID3v1.Read(t, file);
+            Tag.TryFromFile(file, out Tag t);
             return t;
         });
 

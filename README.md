@@ -14,7 +14,7 @@ regex pattern that is used in C#
 - special variables are in `{}` (e. g. `{i}`, `{tag.title}`,...)
   - some special variables can have additional format separated by `:` (e. g. `{i:X}` (hex), `{i:00}` (two digits),...)
   - this format is the same as is used in `.ToString(string)` method in C# for the given type
-  - you can use `\` to escape characters - any character following immediately after the `\` won't be further interpreted
+  - you can use `\` to escape characters - any character immediately after the `\` won't be further interpreted
 
 #### Available special variables
 - `i`

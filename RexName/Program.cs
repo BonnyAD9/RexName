@@ -100,6 +100,23 @@ class Program
             return;
         }
 
+        var dups = rr.GroupBy(p => p.Item2);
+        bool ac = false;
+        foreach (var dup in dups)
+        {
+            if (ac |= dup.Count() > 1)
+                Console.WriteLine($"Duplicates with name {dup.First().Item2}");
+        }
+        if (ac)
+        {
+            Console.Write("Do you want to continue? [y/N]:");
+            if (Console.ReadLine()?.ToLower() != "y")
+            {
+                Console.WriteLine("Quit");
+                return;
+            }
+        }
+
         rr.Rename();
     }
 }
